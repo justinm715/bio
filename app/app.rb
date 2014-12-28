@@ -15,6 +15,8 @@ module Bio
     # Assets
     #
     register Sinatra::AssetPack
+    register Sinatra::CompassSupport
+    
     assets {
       serve '/js',     from: 'assets/js'
       serve '/css',    from: 'assets/css'
@@ -25,9 +27,7 @@ module Bio
       # The final parameter is an array of glob patterns defining the contents
       # of the package (as matched on the public URIs, not the filesystem)
       js :app, '/js/app.js', [
-        '/js/foo.js',
-        '/js/vendor/**/*.js',
-        '/js/lib/**/*.js'
+        '/js/**/*.js',
       ]
 
       css :app, '/css/app.css', [

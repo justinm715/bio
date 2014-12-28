@@ -44,5 +44,7 @@ gem 'thin' # server
 # Assets
 
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
+gem "sinatra-support", require: "sinatra/support"
 gem 'uglifier'
 gem 'sass'
+gem 'compass'

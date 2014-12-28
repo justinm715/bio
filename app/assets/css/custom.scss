@@ -1,3 +1,153 @@
+@import 'compass';
+
+
+/* Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+// Palette
+// http://www.colourlovers.com/business/trends/branding/7830/Gloyneftegas
+
+$color-light-blue: #01B8F1;
+$color-dark-blue: #00364A;
+$color-black: #000002;
+$color-dark-green: #273301;
+$color-light-green: #95CB15;
+$color-light-gray: #F2EEEF;
+
+// Breakpoints
+
+/* Larger than mobile */
+$bp-xsmall: 400px;
+
+/* Larger than phablet (also point when grid becomes active) */
+$bp-small: 550px;
+
+/* Larger than tablet */
+$bp-medium: 750px;
+
+/* Larger than desktop */
+$bp-large: 1000px;
+
+/* Larger than Desktop HD */
+$bp-xlarge: 1200px;
+
+
+/* Mixins
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* Header
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+header {
+
+  border-bottom: 1px solid #ccc;
+
+  .column, .columns { 
+    padding: .75em;
+    &:last-child { 
+      @media (max-width: $bp-small) { padding: 0; }
+    }
+  }
+
+  // to vertically align center columns
+  @media (min-width: $bp-small) {
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: center; 
+    }
+  }
+
+  .logo { 
+    color: $color-light-green;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .topnav {
+
+    @media (min-width: $bp-small) { text-align: right; }
+
+    ul, li { list-style: none; margin: 0; padding: 0; }
+
+    li { display: inline-block; }
+
+    a { 
+      text-decoration: none;
+      font-size: 1.5rem;
+      padding: .5em;
+      font-weight: bold;
+    }
+
+  }
+
+}
+
+/* Colors
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+a { 
+  color: $color-dark-blue;
+  transition: color .15s ease-in;
+}
+
+a:hover { color: $color-light-blue; }
+
+/* Topnav
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+.collapsible-topnav {
+
+  .collapsible-toggle { 
+    color: $color-dark-blue;
+    cursor: pointer; 
+    float: right;
+  }
+
+  @media (min-width: $bp-small) {
+    .collapsible-toggle { 
+      display: none;
+      color: $color-dark-blue;
+    } 
+  }
+
+  @media (max-width: $bp-small) {
+
+    .logo-col .logo { float: left; }
+
+    .logo { font-size: 1em; }
+
+    ul {  display: none; }
+
+    &.open {
+
+      .collapsible-toggle {  color: $color-light-blue; } 
+      
+      ul, li { display: block; }
+
+      li { border-top: 1px solid #ccc; }
+      a { padding: .5em 1em; display: block; }
+
+    }
+
+  }
+
+}
+
+
+
+
+/* Home
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .hero { 
-  padding: 20vh 0;
+  @include display-flex;
+  @include flex-direction(row);
+  @include align-items(center);
+  @include justify-content(center);
+  height: 150px;
+  // @include background-image(linear-gradient(#ddd, white, white, white));
+  border-bottom: 1px solid #ccc;
 }
