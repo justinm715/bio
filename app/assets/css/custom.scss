@@ -63,6 +63,11 @@ header {
     color: $color-light-green;
     font-weight: bold;
     font-size: 1.5em;
+    
+    a { 
+      text-decoration: none; 
+      color: $color-light-green;
+    }
   }
 
   .topnav {
@@ -147,7 +152,66 @@ a:hover { color: $color-light-blue; }
   @include flex-direction(row);
   @include align-items(center);
   @include justify-content(center);
-  height: 150px;
-  // @include background-image(linear-gradient(#ddd, white, white, white));
+  @include background-image(linear-gradient($color-black, $color-dark-blue));
+  height: 100px;
+  color: $color-light-gray;
   border-bottom: 1px solid #ccc;
+  margin-bottom: 2em;
+
+  &.trees {
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    .tree {
+      @include transform(rotate(90deg));
+      font-size: 1.2em;
+      text-shadow: 0px 0px 10px lightblue;
+      opacity: .3;
+      line-height: 3em;
+    }
+
+    @include keyframes(beat) {
+      0% { opacity: .1; }
+      50% { opacity: .25; }
+      100% { opacity: .1; }
+    }
+
+    .tree:not(:hover) {
+      &:nth-child(2n) { @include animation(beat 1s infinite); }
+      &:nth-child(2n+1) { @include animation(beat 1.5s infinite); }
+      &:nth-child(3n) { @include animation(beat 2s infinite); }
+      &:nth-child(3n+1) { @include animation(beat 2.5s infinite); }
+      &:nth-child(4n) { @include animation(beat 3s infinite); }
+    }
+
+    .tree:hover { opacity: 1; }
+
+    .tree:after {
+      content: "|";
+      color: darkslategrey;
+      text-shadow: 2px 0px 3px burlywood;
+    }
+
+    .tree:nth-child(2n) {
+      font-size: .75em;
+    }
+
+  }
+
+}
+
+/* Articles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.articles-list {
+
+  &, li { list-style: none; }
+
+  .date { color: #999; }
+
+}
+
+.article {
+
 }

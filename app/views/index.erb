@@ -1,13 +1,23 @@
-<div class="section hero">
 
-  <div class="container">
 
-    <div class="row">
-      <div class="twelve columns">
-        <h1>s</h1>
-      </div>
-    </div>
 
-  </div>
+<div class="container">
+
+  <ul class="articles-list">
+    <% Services::Articles.manifest.each do |article| %>
+      <li>
+        <h1><%= article["title"] %></h1>
+        <% if article["date"] %>
+          <span class="date">
+            <%= Date.parse(article["date"]).strftime('%B %d, %Y')  %>
+          </span>
+        <% end %>
+        <% if article["description"] %>
+          <p><%= article["description"] %></p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
 
 </div>

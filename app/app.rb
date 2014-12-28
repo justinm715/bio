@@ -12,6 +12,10 @@ module Bio
     enable :sessions
 
     ##
+    # Load services
+    Dir[File.join(root,"services/**/*.rb")].each { |f| require f }
+
+    ##
     # Assets
     #
     register Sinatra::AssetPack

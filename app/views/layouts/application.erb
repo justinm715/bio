@@ -10,7 +10,6 @@
     <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <%= js :app %>
@@ -25,7 +24,7 @@
     <div class="row collapsible-topnav">
       <div class="one-third column logo-col">
         <div class="logo">
-          JM
+          <a href="/">JM</a>
         </div>
         <div class="collapsible-toggle">
           <i class="fa fa-bars"></i>
@@ -43,6 +42,12 @@
     </div>
 
   </header>
+
+  <div class="section hero trees">
+    <% 24.times do %>
+      <span class="tree">&lt;&lt;&lt;&lt;&lt;==</span>
+    <% end %>
+  </div>
 
   <%= yield %>
 
